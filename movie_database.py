@@ -16,7 +16,8 @@ class Movie():
     director = None
     year = None
 
-    def find_highest_rated(filename):
+    @classmethod
+    def find_highest_rated(cls, filename):
         """ This function reads a csv file, then returns a Movie object with
             the highest IMDB rating.
         """
