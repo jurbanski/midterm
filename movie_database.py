@@ -7,7 +7,7 @@ import json
 from urllib.request import urlopen
 
 class Movie():
-    """ Movie class contains the IMDB ID, the title of the movie, the IMDB 
+    """ Movie class contains the IMDB ID, the title of the movie, the IMDB
         rating, and the movie's director.
     """
     imdb_id = None
@@ -17,6 +17,9 @@ class Movie():
     year = None
 
     def find_highest_rated(filename):
+        """ This function reads a csv file, then returns a Movie object with
+            the highest IMDB rating.
+        """
         movie_list = []
 
         infile = open(filename, 'r')
@@ -38,6 +41,8 @@ class Movie():
         return movie_list[0]
 
     def plot(self):
+        """ This function returns the OMDB plot for a given Movie.
+        """
         url = 'http://www.omdbapi.com/?i=' + self.imdb_id + '&plot=short&r=json'
 
         data = urlopen(url).read().decode('utf8')
